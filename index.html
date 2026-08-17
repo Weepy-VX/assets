@@ -208,7 +208,7 @@
         let foldersFound = false;
 
         for (const item of items) {
-          if (item.type === 'dir') {
+          if (item.type === 'dir' && item.name !== 'fla') {
             foldersFound = true;
             
             // Create a clickable folder card
