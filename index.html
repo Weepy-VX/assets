@@ -43,6 +43,29 @@
     #back-btn:hover {
       background-color: #f3f4f6;
     }
+    #lock-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #24292f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color 0.2s;
+  }
+  
+  #lock-btn:hover {
+    background-color: #57606a;
+  }
     
     /* Grid Layouts */
     .grid-container {
@@ -291,6 +314,22 @@
       container.appendChild(card);
     }
   </script>
+<!-- Hidden Lock Button -->
+<button id="lock-btn" title="Restricted Access" onclick="promptPassword()">🔒</button>
 
+<script>
+  function promptPassword() {
+    const password = prompt("Enter restricted passcode:");
+    
+    // Check if the entered password matches
+    if (password === "fla banners") {
+      // Redirect to the fla folder
+      window.location.href = "fla/"; 
+    } else if (password !== null) {
+      // If they typed something wrong (and didn't just hit cancel)
+      alert("Access Denied: Incorrect passcode.");
+    }
+  }
+</script>
 </body>
 </html>
